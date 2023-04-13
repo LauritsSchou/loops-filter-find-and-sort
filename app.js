@@ -90,9 +90,13 @@ function initApp() {
   //   whileSearchByName("ras");
   //   filterTeachersOver40();
   //   filterTeachersByName("er");
-  filterLecturers();
+  // filterLecturers();
+  // showTeacher();
+  // sortNames();
+  // sortYears();
+  // sortTeachers();
+  sortTeachersByAge();
 }
-
 // ========== forEach ========== //
 function loopThroughNames() {
   names.forEach(showName);
@@ -256,3 +260,35 @@ function filterLecturers() {
   return results;
 }
 // ========== Sorting: array.sort() ========== //
+function showTeacher() {
+  const result = teachers.find(findTeacherByName);
+  console.log(result);
+}
+function findTeacherByName(teacher) {
+  return teacher.name === "Martin Hansen";
+}
+function sortNames() {
+  names.sort(compareNames);
+  console.log(names);
+}
+function compareNames(name1, name2) {
+  return name1.localeCompare(name2);
+}
+function sortYears() {
+  years.sort();
+  console.log(years);
+}
+function sortTeachers() {
+  teachers.sort(compareTeacherNames);
+  console.log(teachers);
+}
+function compareTeacherNames(teacher1, teacher2) {
+  return teacher1.name.localeCompare(teacher2.name);
+}
+function sortTeachersByAge() {
+  teachers.sort(compareTeachersAge);
+  console.log(teachers);
+}
+function compareTeachersAge(teacher1, teacher2) {
+  return teacher1.age - teacher2.age;
+}
